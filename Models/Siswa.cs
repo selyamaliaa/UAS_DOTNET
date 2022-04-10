@@ -19,4 +19,11 @@ namespace UAS_DOTNET.Models
         [Required]
         public string Alamat { get; set; }
     }
+    public class SiswaDashboard
+    {
+        public List<Siswa> sis { get; set; }
+        public SiswaDashboard(){
+            sis = new List<Siswa>();
+        }
+    }
 }

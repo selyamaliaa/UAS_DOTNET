@@ -1,0 +1,61 @@
+﻿@model Siswa
+
+@{
+    Layout = "_LayoutBaru";
+}
+
+        <div class="row">
+            <div class="col-lg-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Menambah Data Siswa</h5>
+
+                        <!-- General Form Elements -->
+                        <form asp-controller="Siswa" asp-action="TambahSiswa">
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label" asp-for="NIS">NIS</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" asp-for="NIS">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label" asp-for="NISN">NISN</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" asp-for="NISN">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label" asp-for="Nama">Nama</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" asp-for="Nama">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label" asp-for="Jenis_Kelamin">Jenis_Kelamin</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" asp-for="Jenis_Kelamin">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label" asp-for="Alamat">Alamat</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" asp-for="Alamat">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </div>
+
+                        </form><!-- End General Form Elements -->
+
+                    </div>
+                </div>
+
+            </div>
+
+           
+        </div>

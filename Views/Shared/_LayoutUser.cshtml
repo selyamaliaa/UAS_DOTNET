@@ -66,21 +66,23 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-menu-button-wide"></i><span>Siswa</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-menu-button-wide"></i><span>Guru</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a asp-area="Admin" asp-controller="Siswa" asp-action="Index">
-                            <i class="bi bi-circle"></i><span>Data Siswa</span>
+                        <a asp-area="User" asp-controller="Guru" asp-action="Data">
+                            <i class="bi bi-circle"></i><span>Data Guru</span>
                         </a>
                     </li>
                     <li>
-                        <a asp-area="Admin" asp-controller="Siswa" asp-action="TambahSiswa">
-                            <i class="bi bi-circle"></i><span>Tambah Siswa</span>
+                        <a  asp-area="User" asp-controller="Guru" asp-action="Create">
+                            <i class="bi bi-circle"></i><span>Daftar Sebagai Guru</span>
                         </a>
                     </li>
                 </ul>
             </li><!-- Guru -->
+
+          
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">

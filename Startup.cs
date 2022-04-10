@@ -10,6 +10,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UAS_DOTNET.data;
+using UAS_DOTNET.Repositories.AkunRepository;
+using UAS_DOTNET.Repositories.SiswaRepository;
+using UAS_DOTNET.Services.AkunService;
+using UAS_DOTNET.Services.NewFolder;
+using UAS_DOTNET.Services.SiswaService;
 
 namespace UAS_DOTNET
 {
@@ -29,6 +34,18 @@ namespace UAS_DOTNET
             {
                 o.UseMySQL(Configuration.GetConnectionString("mysql"));
             });
+
+            services.AddAuthentication("CookieAuth")
+                .AddCookie("CookieAuth", options =>
+                {
+                    options.LoginPath = "/Akun/LogIn";
+                });
+
+            services.AddScoped<IAkunRepository, AkunRepository>();
+            services.AddScoped<IAkunService, AkunService>();
+            services.AddScoped<ISiswaRepository, SiswaRepository>();
+            services.AddScoped<ISiswaService, SiswaService>();
+
             services.AddControllersWithViews();
         }
 
@@ -50,6 +67,8 @@ namespace UAS_DOTNET
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -57,14 +76,14 @@ namespace UAS_DOTNET
                 endpoints.MapAreaControllerRoute(
                     name: "AreaAdmin",
                     areaName: "Admin",
-                    pattern: "Admin/{controller=Home}/{action=Beranda}/{id?}");
+                    pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapAreaControllerRoute(
                     name: "AreaUser",
                     areaName: "Admin",
-                    pattern: "Admin/{controller=Home}/{action=Beranda}/{id?}");
+                    pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Akun}/{action=Daftar}/{id?}");
+                    pattern: "{controller=Akun}/{action=LogIn}/{id?}");
             });
         }
     }
